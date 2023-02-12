@@ -6,3 +6,19 @@
 ____
 A Big box is a generic word for say a "project".
 ____
+
+== File hierachy
+
+=== The program
+
+inc:: Include, for headers files
+src:: Source, for source code files
+obj:: Objet, for compiled source code
+
+=== The documentation
+
+doc:: Documentation folder
+
+=== The tester
+
+test:: Contains all sources for testing the program
