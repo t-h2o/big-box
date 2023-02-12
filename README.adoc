@@ -22,3 +22,13 @@ doc:: Documentation folder
 === The tester
 
 test:: Contains all sources for testing the program
+
+== Tools
+
+=== Version control
+
+git:: no need to say more
+
+=== A source code formater
+
+clang-format:: Clang format is a tool from `llvm` for formatting source files
