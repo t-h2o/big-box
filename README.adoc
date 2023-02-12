@@ -1,4 +1,7 @@
 = Big box
+:sectnums:
+:nofooter:
+:toc: left
 
 ____
 A Big box is a generic word for say a "project".
