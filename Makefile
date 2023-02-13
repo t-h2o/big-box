@@ -29,7 +29,7 @@ INCS	+=	$(INCD)/f.hpp
 
 #	Objets
 
-OBJD	=	objs
+OBJD	=	obj
 OBJS	=	$(patsubst $(SRCD)/%.cpp, $(OBJD)/%.o, $(SRCS))
 
 RM		=	rm -rf
