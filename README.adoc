@@ -43,3 +43,7 @@ doc:: Generate from AsciiDoc into html
 == Markup language
 
 AsciiDoc:: It is clear as markdown and has more feature than markdown
+
+== Workflow
+
+An article on a git workflow https://gastaud.io/article/git-workflow/[git-workflow]
