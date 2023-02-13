@@ -23,7 +23,7 @@ SRCS	+=	$(SRCD)/f/f.cpp
 
 #	Headers
 
-INCD	=	headers
+INCD	=	inc
 
 INCS	+=	$(INCD)/f.hpp
 
