@@ -68,7 +68,7 @@ format:
 
 
 doc:
-	asciidoctor README.adoc -o index.html
+	asciidoctor doc/README.adoc -o doc/index.html
 
 
 .PHONY: all clean fclean libclean fullclean
