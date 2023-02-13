@@ -1,6 +1,8 @@
 NAME	=	program
+LIB		=	lib$(NAME).a
 
 CC		=	g++
+AR		=	ar rs
 DB		=	lldb
 
 CFLAGS	=	-Wall
@@ -46,12 +48,20 @@ $(OBJD)/%.o: $(SRCD)/%.cpp
 	@mkdir -p $(@D)
 	@$(CC) -c $(<) $(CFLAGS) -I$(INCD) -o $(@)
 
+$(LIB): $(OBJS)
+	@$(AR) $(LIB) $(OBJS) > /dev/null
+
+test: $(LIB)
+	@make --no-print-directory --directory=test
+	@test/test
+
 clean:
 	@$(RM) $(OBJD)
 	@printf "$(RED)Removed $(CYAN)$(OBJD)$(DEFAULT)\n"
 
 fclean: clean
 	@$(RM) $(NAME)
+	@$(RM) $(LIB)
 	@printf "$(RED)Removed $(CYAN)$(NAME)$(DEFAULT)\n"
 
 re:	fclean all
