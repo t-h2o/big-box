@@ -15,7 +15,7 @@ OFLAGS	=	-fsanitize=address
 
 #	Sources
 
-SRCD	=	srcs
+SRCD	=	src
 
 SRCS	=	$(SRCD)/main.cpp
 SRCS	+=	$(SRCD)/f/f.cpp
