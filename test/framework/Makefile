@@ -1,78 +1,92 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: yalthaus <yalthaus@42lausanne.ch>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/02/10 17:31:55 by yalthaus          #+#    #+#              #
-#    Updated: 2023/02/13 23:13:42 by theo42           ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME	=	libunit.a
 
-NAME = libunit.a
+AR		=	ar rs
+DB		=	lldb
 
-SRCS += load_test.c
-SRCS += launch_tests.c
-SRCS += utils_s_unit_test.c
-SRCS += signal.c
+CFLAGS	=	-Wall
+CFLAGS	+=	-Wextra
+CFLAGS	+=	-Werror
+CFLAGS	+=	-g
+CFLAGS	+=	-Wfatal-errors
+CFLAGS	+=	-std=c++98
+
+OFLAGS	=	-fsanitize=address
 
 
-SRCS_DIR = src
+#	Sources
 
-OBJS = $(SRCS:.c=.o)
-OBJS_DIR = obj
-
-DIRS = obj
-
-_SRCS = $(addprefix $(SRCS_DIR)/, $(SRCS))
-_OBJS = $(addprefix $(OBJS_DIR)/, $(OBJS))
-
-HEADERS = inc
+SRCD	=	src
+ 
+SRCS	+=	$(SRCD)/load_test.cpp
+SRCS	+=	$(SRCD)/launch_tests.cpp
+SRCS	+=	$(SRCD)/utils_s_unit_test.cpp
+SRCS	+=	$(SRCD)/signal.cpp
 
 
-MAKE = make --no-print-directory
-CC = g++
+#	Headers
 
-CFLAGS = -I $(HEADERS) -Wall -Wextra -Werror
-LFLAGS = $(CFLAGS)
+INCD	=	inc
 
-DEBUG_CFLAGS = -g3 -fsanitize=address -fno-omit-frame-pointer
+INCS	+=	$(INCD)/libunit.h
+INCS	+=	$(INCD)/utils.h
 
-UNAME = $(shell uname -s)
 
-# Color
-_COLOR		= \033[32m
-_BOLDCOLOR	= \033[32;1m
-_RESET		= \033[0m
-_CLEAR		= \033[0K\r\c
-_OK			= [\033[32mOK\033[0m]
-_RM			= [\033[31mRM\033[0m]
+#	Objets
 
-all: $(NAME)
+OBJD	=	obj
+OBJS	=	$(patsubst $(SRCD)/%.cpp, $(OBJD)/%.o, $(SRCS))
 
-fast: CFLAGS += -Ofast
-fast: $(NAME)
+RM		=	rm -rf
 
-$(NAME): $(_OBJS)
-	@ar rcs $(NAME) $(_OBJS)
-	@echo "$(_OK) $(NAME) \t\tcompiled"
 
-$(OBJS_DIR)/%.o:$(SRCS_DIR)/%.c
-	@echo "[..] $(NAME)... compiling $*.c\r\c"
-	@mkdir -p $(DIRS)
-	@$(CC) -c $(CFLAGS) $< -o $@
-	@echo "$(_CLEAR)"
+all : $(NAME)
+
+$(NAME):	$(OBJS)
+	@printf "$(YELLOW)Creating executable..$(DEFAULT)\n"
+	@$(AR) $(NAME) $(LIB) $(OBJS) > /dev/null
+	@printf "$(GREEN)---> $(NAME) is ready$(DEFAULT)\n"
+
+$(OBJD)/%.o: $(SRCD)/%.cpp
+	@mkdir -p $(@D)
+	@$(CC) -c $(<) $(CFLAGS) -I$(INCD) -o $(@)
+
+$(LIB): $(OBJS)
+
+test: $(LIB)
+	@make --no-print-directory --directory=test
+	@test/test
 
 clean:
-	@echo "[..] $(NAME)... removing $*.c\r\c"
-	@rm -rf $(OBJS_DIR)
-	@echo "$(_CLEAR)"
+	@$(RM) $(OBJD)
+	@printf "$(RED)Removed $(CYAN)$(OBJD)$(DEFAULT)\n"
 
-fclean:
-	@rm -rf $(OBJS_DIR) $(NAME)
-	@echo "$(_RM) $(NAME) \t\tfull clean"
+fclean: clean
+	@$(RM) $(NAME)
+	@$(RM) $(LIB)
+	@printf "$(RED)Removed $(CYAN)$(NAME)$(DEFAULT)\n"
 
-re: fclean all
+re:	fclean all
 
-.PHONY : all fast debug clean fclean re
+
+db: all
+	$(DB) $(NAME)
+
+format:
+	@cat $(SRCS) $(INCS) $(TMPS) > /tmp/before
+	@clang-format -i $(SRCS) $(INCS) $(TMPS)
+	@cat $(SRCS) $(INCS) $(TMPS) > /tmp/after
+	@diff -u --color=auto /tmp/before /tmp/after || true
+
+
+doc:
+	asciidoctor doc/README.adoc -o doc/index.html
+
+
+.PHONY: all clean fclean libclean fullclean
+
+#COLORS
+RED = \033[1;31m
+GREEN = \033[1;32m
+YELLOW = \033[1;33m
+CYAN = \033[1;36m
+DEFAULT = \033[0m
