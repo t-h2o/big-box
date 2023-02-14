@@ -16,7 +16,7 @@ OFLAGS	=	-fsanitize=address
 
 #	Sources
 
-SRCD	=	srcs
+SRCD	=	src
 
 SRCS	=	$(SRCD)/main.cpp
 SRCS	+=	$(SRCD)/f/00_launcher.cpp
@@ -25,7 +25,7 @@ SRCS	+=	$(SRCD)/f/01_test.cpp
 
 #	Headers
 
-INCD	=	headers
+INCD	=	inc
 
 INCS	+=	$(INCD)/f.hpp
 
@@ -35,7 +35,7 @@ LIBS_FLAGS	=	$(addprefix -l, program unit) $(addprefix -L, .. framework)
 
 #	Objets
 
-OBJD	=	objs
+OBJD	=	obj
 OBJS	=	$(patsubst $(SRCD)/%.cpp, $(OBJD)/%.o, $(SRCS))
 
 RM		=	rm -rf
