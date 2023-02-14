@@ -2,6 +2,7 @@ NAME	=	test
 
 CC		=	g++
 DB		=	lldb
+MAKE	=	make --no-print-directory
 
 CFLAGS	=	-Wall
 CFLAGS	+=	-Wextra
@@ -43,7 +44,7 @@ RM		=	rm -rf
 all : $(NAME)
 
 $(NAME):	$(OBJS)
-	@make --no-print-directory --directory=framework
+	@$(MAKE) --directory=framework
 	@printf "$(YELLOW)Creating executable..$(DEFAULT)\n"
 	@$(CC) $(OBJS) $(LIBS_FLAGS) $(OFLAGS) -o $(NAME)
 	@printf "$(GREEN)---> $(NAME) is ready$(DEFAULT)\n"
@@ -51,6 +52,13 @@ $(NAME):	$(OBJS)
 $(OBJD)/%.o: $(SRCD)/%.cpp
 	@mkdir -p $(@D)
 	@$(CC) -c $(<) $(CFLAGS) $(INCD_FLAGS) -o $(@)
+
+db: $(NAME)
+	$(DB) $(NAME)
+
+format:
+	@printf "$(YELLOW)Formating the sources..$(DEFAULT)\n"
+	@clang-format -i $(SRCS) $(INCS)
 
 clean:
 	@$(RM) $(OBJD)
@@ -61,23 +69,6 @@ fclean: clean
 	@printf "$(RED)Removed $(CYAN)$(NAME)$(DEFAULT)\n"
 
 re:	fclean all
-
-
-db: all
-	$(DB) $(NAME)
-
-format:
-	@cat $(SRCS) $(INCS) $(TMPS) > /tmp/before
-	@clang-format -i $(SRCS) $(INCS) $(TMPS)
-	@cat $(SRCS) $(INCS) $(TMPS) > /tmp/after
-	@diff -u --color=auto /tmp/before /tmp/after || true
-
-
-diagram:
-	asciidoctor -r asciidoctor-diagram README.adoc -o assets/index.html
-
-doc: diagram
-	asciidoctor README.adoc -o index.html
 
 
 .PHONY: all clean fclean libclean fullclean
