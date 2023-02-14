@@ -54,6 +54,7 @@ $(LIB): $(OBJS)
 
 test: $(LIB)
 	@$(MAKE) --directory=test
+	@printf "$(YELLOW)Launching test..$(DEFAULT)\n"
 	@test/test
 
 clean:
@@ -83,7 +84,8 @@ format:
 
 
 doc:
-	asciidoctor doc/README.adoc -o doc/index.html
+	@printf "$(YELLOW)Generating documentations..$(DEFAULT)\n"
+	@asciidoctor doc/README.adoc -o doc/index.html
 
 
 .PHONY: all clean fclean libclean fullclean test doc
