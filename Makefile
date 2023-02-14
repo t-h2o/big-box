@@ -4,6 +4,7 @@ LIB		=	lib$(NAME).a
 CC		=	g++
 AR		=	ar rs
 DB		=	lldb
+MAKE	=	make --no-print-directory
 
 CFLAGS	=	-Wall
 CFLAGS	+=	-Wextra
@@ -52,7 +53,7 @@ $(LIB): $(OBJS)
 	@$(AR) $(LIB) $(OBJS) > /dev/null
 
 test: $(LIB)
-	@make --no-print-directory --directory=test
+	@$(MAKE) --directory=test
 	@test/test
 
 clean:
@@ -63,6 +64,10 @@ fclean: clean
 	@$(RM) $(NAME)
 	@$(RM) $(LIB)
 	@printf "$(RED)Removed $(CYAN)$(NAME)$(DEFAULT)\n"
+
+fullclean: fclean
+	@$(MAKE) --directory=test fclean
+	@$(MAKE) --directory=test/framework fclean
 
 re:	fclean all
 
