@@ -43,6 +43,7 @@ RM		=	rm -rf
 all : $(NAME)
 
 $(NAME):	$(OBJS)
+	@make --no-print-directory --directory=framework
 	@printf "$(YELLOW)Creating executable..$(DEFAULT)\n"
 	@$(CC) $(OBJS) $(LIBS_FLAGS) $(OFLAGS) -o $(NAME)
 	@printf "$(GREEN)---> $(NAME) is ready$(DEFAULT)\n"
