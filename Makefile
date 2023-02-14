@@ -77,11 +77,8 @@ db: all
 	$(DB) $(NAME)
 
 format:
-	@cat $(SRCS) $(INCS) $(TMPS) > /tmp/before
-	@clang-format -i $(SRCS) $(INCS) $(TMPS)
-	@cat $(SRCS) $(INCS) $(TMPS) > /tmp/after
-	@diff -u --color=auto /tmp/before /tmp/after || true
-
+	@printf "$(YELLOW)Formating the sources..$(DEFAULT)\n"
+	@clang-format -i $(SRCS) $(INCS)
 
 doc:
 	@printf "$(YELLOW)Generating documentations..$(DEFAULT)\n"
