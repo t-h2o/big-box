@@ -1,10 +1,12 @@
 NAME	=	program
 LIB		=	lib$(NAME).a
 
+
 CC		=	g++
 AR		=	ar rs
 DB		=	lldb
 MAKE	=	make --no-print-directory
+
 
 CFLAGS	=	-Wall
 CFLAGS	+=	-Wextra
@@ -29,6 +31,7 @@ SRCS	+=	$(SRCD)/f/f.cpp
 INCD	=	inc
 
 INCS	+=	$(INCD)/f.hpp
+
 
 #	Objets
 
@@ -57,6 +60,17 @@ test: $(LIB)
 	@printf "$(YELLOW)Launching test..$(DEFAULT)\n"
 	@test/test
 
+db: $(NAME)
+	$(DB) $(NAME)
+
+format:
+	@printf "$(YELLOW)Formating the sources..$(DEFAULT)\n"
+	@clang-format -i $(SRCS) $(INCS)
+
+doc:
+	@printf "$(YELLOW)Generating documentations..$(DEFAULT)\n"
+	@asciidoctor doc/README.adoc -o doc/index.html
+
 clean:
 	@$(RM) $(OBJD)
 	@printf "$(RED)Removed $(CYAN)$(OBJD)$(DEFAULT)\n"
@@ -73,19 +87,8 @@ fullclean: fclean
 re:	fclean all
 
 
-db: all
-	$(DB) $(NAME)
-
-format:
-	@printf "$(YELLOW)Formating the sources..$(DEFAULT)\n"
-	@clang-format -i $(SRCS) $(INCS)
-
-doc:
-	@printf "$(YELLOW)Generating documentations..$(DEFAULT)\n"
-	@asciidoctor doc/README.adoc -o doc/index.html
-
-
 .PHONY: all clean fclean libclean fullclean test doc
+
 
 #COLORS
 RED = \033[1;31m
