@@ -86,7 +86,7 @@ doc:
 	asciidoctor doc/README.adoc -o doc/index.html
 
 
-.PHONY: all clean fclean libclean fullclean
+.PHONY: all clean fclean libclean fullclean test doc
 
 #COLORS
 RED = \033[1;31m
