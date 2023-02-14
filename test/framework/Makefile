@@ -16,7 +16,7 @@ OFLAGS	=	-fsanitize=address
 #	Sources
 
 SRCD	=	src
- 
+
 SRCS	+=	$(SRCD)/load_test.cpp
 SRCS	+=	$(SRCD)/launch_tests.cpp
 SRCS	+=	$(SRCD)/utils_s_unit_test.cpp
@@ -42,19 +42,17 @@ RM		=	rm -rf
 all : $(NAME)
 
 $(NAME):	$(OBJS)
-	@printf "$(YELLOW)Creating executable..$(DEFAULT)\n"
-	@$(AR) $(NAME) $(LIB) $(OBJS) > /dev/null
+	@printf "$(YELLOW)Creating archive..$(DEFAULT)\n"
+	@$(AR) $(NAME) $(OBJS) > /dev/null
 	@printf "$(GREEN)---> $(NAME) is ready$(DEFAULT)\n"
 
 $(OBJD)/%.o: $(SRCD)/%.cpp
 	@mkdir -p $(@D)
 	@$(CC) -c $(<) $(CFLAGS) -I$(INCD) -o $(@)
 
-$(LIB): $(OBJS)
-
-test: $(LIB)
-	@make --no-print-directory --directory=test
-	@test/test
+format:
+	@printf "$(YELLOW)Formating the sources..$(DEFAULT)\n"
+	@clang-format -i $(SRCS) $(INCS)
 
 clean:
 	@$(RM) $(OBJD)
@@ -62,27 +60,13 @@ clean:
 
 fclean: clean
 	@$(RM) $(NAME)
-	@$(RM) $(LIB)
 	@printf "$(RED)Removed $(CYAN)$(NAME)$(DEFAULT)\n"
 
 re:	fclean all
 
 
-db: all
-	$(DB) $(NAME)
-
-format:
-	@cat $(SRCS) $(INCS) $(TMPS) > /tmp/before
-	@clang-format -i $(SRCS) $(INCS) $(TMPS)
-	@cat $(SRCS) $(INCS) $(TMPS) > /tmp/after
-	@diff -u --color=auto /tmp/before /tmp/after || true
-
-
-doc:
-	asciidoctor doc/README.adoc -o doc/index.html
-
-
 .PHONY: all clean fclean libclean fullclean
+
 
 #COLORS
 RED = \033[1;31m
