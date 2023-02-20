@@ -69,7 +69,8 @@ format:
 
 doc:
 	@printf "$(YELLOW)Generating documentations..$(DEFAULT)\n"
-	@asciidoctor doc/README.adoc -o doc/index.html
+	@echo xx asciidoctor doc/README.adoc -o doc/index.html
+	asciidoctor -r asciidoctor-diagram doc/README.adoc -o doc/index.html
 
 clean:
 	@$(RM) $(OBJD)

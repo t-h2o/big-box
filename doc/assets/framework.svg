@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg height='291pt' preserveAspectRatio='xMidYMid meet' viewBox='0.00 0.00 377.00 291.00' width='377pt' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg'>
+<g class='graph' id='graph0' transform='scale(1 1) rotate(0) translate(4 287)'>
+<title>G</title>
+<polygon fill='white' points='-4,4 -4,-287 373,-287 373,4 -4,4' stroke='none'/>
+<g class='cluster' id='clust1'>
+<title>clusterA</title>
+<polygon fill='none' points='0.17,-112.22 0.17,-283.22 257.17,-283.22 257.17,-112.22 0.17,-112.22' stroke='black'/>
+</g>
+<g class='cluster' id='clust2'>
+<title>clusterC</title>
+<polygon fill='none' points='8.03,-120.37 8.03,-220.37 137.03,-220.37 137.03,-120.37 8.03,-120.37' stroke='black'/>
+</g>
+<g class='cluster' id='clust3'>
+<title>clusterB</title>
+<polygon fill='none' points='267.39,-45.36 267.39,-141.36 369.39,-141.36 369.39,-45.36 267.39,-45.36' stroke='black'/>
+</g>
+
+<g class='node' id='node1'>
+<title>e</title>
+<ellipse cx='291.79' cy='-18.39' fill='none' rx='27' ry='18' stroke='black'/>
+<text font-family='Helvetica,Arial,sans-serif' font-size='14.00' text-anchor='middle' x='291.79' y='-14.69'>e</text>
+</g>
+
+
+<g class='edge' id='edge7'>
+<title>e&#45;&#45;__0:clusterB</title>
+<path d='M298.1,-36.16C302.24,-47.85 307.66,-63.12 311.85,-74.94' fill='none' stroke='black'/>
+</g>
+
+<g class='node' id='node2'>
+<title>a</title>
+<ellipse cx='156.58' cy='-257.55' fill='none' rx='27' ry='18' stroke='black'/>
+<text font-family='Helvetica,Arial,sans-serif' font-size='14.00' text-anchor='middle' x='156.58' y='-253.85'>a</text>
+</g>
+
+<g class='node' id='node3'>
+<title>b</title>
+<ellipse cx='222.03' cy='-247.78' fill='none' rx='27' ry='18' stroke='black'/>
+<text font-family='Helvetica,Arial,sans-serif' font-size='14.00' text-anchor='middle' x='222.03' y='-244.08'>b</text>
+</g>
+
+<g class='edge' id='edge1'>
+<title>a&#45;&#45;b</title>
+<path d='M183.2,-253.58C187.16,-252.98 191.25,-252.37 195.22,-251.78' fill='none' stroke='black'/>
+</g>
+
+<g class='node' id='node4'>
+<title>C</title>
+<ellipse cx='102.32' cy='-146.72' fill='none' rx='27' ry='18' stroke='black'/>
+<text font-family='Helvetica,Arial,sans-serif' font-size='14.00' text-anchor='middle' x='102.32' y='-143.02'>C</text>
+</g>
+
+<g class='node' id='node5'>
+<title>D</title>
+<ellipse cx='43.03' cy='-194.76' fill='none' rx='27' ry='18' stroke='black'/>
+<text font-family='Helvetica,Arial,sans-serif' font-size='14.00' text-anchor='middle' x='43.03' y='-191.06'>D</text>
+</g>
+
+<g class='edge' id='edge2'>
+<title>C&#45;&#45;D</title>
+<path d='M84.85,-160.87C77.2,-167.07 68.24,-174.34 60.58,-180.54' fill='none' stroke='black'/>
+</g>
+
+<g class='node' id='node6'>
+<title>d</title>
+<ellipse cx='302.66' cy='-115.64' fill='none' rx='27' ry='18' stroke='black'/>
+<text font-family='Helvetica,Arial,sans-serif' font-size='14.00' text-anchor='middle' x='302.66' y='-111.94'>d</text>
+</g>
+
+<g class='edge' id='edge4'>
+<title>d&#45;&#45;D</title>
+<path d='M277.77,-123.23C228.14,-138.35 117.42,-172.09 67.85,-187.2' fill='none' stroke='black'/>
+</g>
+
+<g class='node' id='node7'>
+<title>f</title>
+<ellipse cx='333.96' cy='-71.63' fill='none' rx='27' ry='18' stroke='black'/>
+<text font-family='Helvetica,Arial,sans-serif' font-size='14.00' text-anchor='middle' x='333.96' y='-67.93'>f</text>
+</g>
+
+<g class='edge' id='edge3'>
+<title>d&#45;&#45;f</title>
+<path d='M314.49,-99C316.99,-95.5 319.62,-91.8 322.11,-88.29' fill='none' stroke='black'/>
+</g>
+
+
+
+<g class='edge' id='edge8'>
+<title>__1:clusterC&#45;&#45;__2:clusterB</title>
+<path d='M99.78,-161.83C147.04,-147.03 243.67,-116.76 291.02,-101.93' fill='none' stroke='black'/>
+</g>
+</g>
+</svg>
