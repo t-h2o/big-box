@@ -34,6 +34,14 @@ git:: no need to say more
 
 clang-format:: Clang format is a tool from `llvm` for formatting source files
 
+== Markup language
+
+[blockquote, Linus Torvalds]
+____
+Use https://asciidoc.org/[AsciiDoc] for document markup. Really.
+It's actually readable by humans, easier to parse and way more flexible than XML.
+____
+
 === HTML generator
 
 [blockquote, Asciidoctor]
@@ -63,10 +71,6 @@ all:: Compile the program
 db:: Compile the program and launch a debugger on the program
 format:: Run clang-format in each source files
 doc:: Generate from AsciiDoc into html
-
-== Markup language
-
-AsciiDoc:: It is clear as markdown and has more feature than markdown
 
 == Workflow
 

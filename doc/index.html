@@ -453,11 +453,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_version_control">2.1. Version control</a></li>
 <li><a href="#_a_source_code_formater">2.2. A source code formater</a></li>
-<li><a href="#_html_generator">2.3. HTML generator</a></li>
 </ul>
 </li>
-<li><a href="#_makefile_rules">3. Makefile rules</a></li>
-<li><a href="#_markup_language">4. Markup language</a></li>
+<li><a href="#_markup_language">3. Markup language</a>
+<ul class="sectlevel2">
+<li><a href="#_html_generator">3.1. HTML generator</a></li>
+</ul>
+</li>
+<li><a href="#_makefile_rules">4. Makefile rules</a></li>
 <li><a href="#_workflow">5. Workflow</a></li>
 </ul>
 </div>
@@ -548,8 +551,24 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </dl>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_markup_language">3. Markup language</h2>
+<div class="sectionbody">
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Use <a href="https://asciidoc.org/">AsciiDoc</a> for document markup. Really.
+It&#8217;s actually readable by humans, easier to parse and way more flexible than XML.</p>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; Linus Torvalds
+</div>
+</div>
 <div class="sect2">
-<h3 id="_html_generator">2.3. HTML generator</h3>
+<h3 id="_html_generator">3.1. HTML generator</h3>
 <div class="quoteblock">
 <blockquote>
 <div class="paragraph">
@@ -587,7 +606,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_makefile_rules">3. Makefile rules</h2>
+<h2 id="_makefile_rules">4. Makefile rules</h2>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
@@ -606,19 +625,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <dt class="hdlist1">doc</dt>
 <dd>
 <p>Generate from AsciiDoc into html</p>
-</dd>
-</dl>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_markup_language">4. Markup language</h2>
-<div class="sectionbody">
-<div class="dlist">
-<dl>
-<dt class="hdlist1">AsciiDoc</dt>
-<dd>
-<p>It is clear as markdown and has more feature than markdown</p>
 </dd>
 </dl>
 </div>
