@@ -33,6 +33,24 @@ git:: no need to say more
 
 clang-format:: Clang format is a tool from `llvm` for formatting source files
 
+=== HTML generator
+
+The tool is available into this docker https://hub.docker.com/r/asciidoctor/docker-asciidoctor[image]
+
+. pull the image
++
+[source, bash]
+----
+docker pull asciidoctor/docker-asciidoctor
+----
+
+. run the image with interactive mode
++
+[source, bash]
+----
+docker run -it -v ${PWD}:/documents/ asciidoctor/docker-asciidoctor
+----
+
 == Makefile rules
 
 all:: Compile the program
