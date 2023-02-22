@@ -77,7 +77,7 @@ doc:
 	@$(ADOC) $(DOCU) -o $(INDEX)
 
 docdocker:
-	docker run --rm -v $(shell pwd):/documents/ asciidoctor/docker-asciidoctor make doc
+	docker run --rm -v $(shell pwd):/documents/ asciidoctor/docker-asciidoctor make docs
 
 clean:
 	@$(RM) $(OBJD)

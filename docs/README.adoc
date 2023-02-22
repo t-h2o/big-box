@@ -18,7 +18,7 @@ obj:: Objet, for compiled source code
 
 === The documentation
 
-doc:: Documentation folder
+docs:: Documentation folder
 
 === The tester
 
@@ -62,7 +62,7 @@ docker run -it -v ${PWD}:/documents/ asciidoctor/docker-asciidoctor
 all:: Compile the program
 db:: Compile the program and launch a debugger on the program
 format:: Run clang-format in each source files
-doc:: Generate from AsciiDoc into html
+docs:: Generate from AsciiDoc into html
 
 == Markup language
 

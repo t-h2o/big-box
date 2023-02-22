@@ -1,1 +1,1 @@
-include::doc/README.adoc[]
+include::docs/README.adoc[]
