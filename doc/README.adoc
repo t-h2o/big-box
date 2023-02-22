@@ -1,0 +1,73 @@
+= Big box
+:sectnums:
+:nofooter:
+:toc: left
+
+[blockquote, T-h2o]
+____
+A Big box is a generic word for say a "project".
+____
+
+== File hierachy
+
+=== The program
+
+inc:: Include, for headers files
+src:: Source, for source code files
+obj:: Objet, for compiled source code
+
+=== The documentation
+
+doc:: Documentation folder
+
+=== The tester
+
+test:: Contains all sources for testing the program
+
+== Tools
+
+=== Version control
+
+git:: no need to say more
+
+=== A source code formater
+
+clang-format:: Clang format is a tool from `llvm` for formatting source files
+
+=== HTML generator
+
+[blockquote, Asciidoctor]
+____
+Convert AsciiDoc to HTML5
+____
+
+The tool is available into this docker https://hub.docker.com/r/asciidoctor/docker-asciidoctor[image]
+
+. pull the image
++
+[source, bash]
+----
+docker pull asciidoctor/docker-asciidoctor
+----
+
+. run the image with interactive mode
++
+[source, bash]
+----
+docker run -it -v ${PWD}:/documents/ asciidoctor/docker-asciidoctor
+----
+
+== Makefile rules
+
+all:: Compile the program
+db:: Compile the program and launch a debugger on the program
+format:: Run clang-format in each source files
+doc:: Generate from AsciiDoc into html
+
+== Markup language
+
+AsciiDoc:: It is clear as markdown and has more feature than markdown
+
+== Workflow
+
+An article on a git workflow https://gastaud.io/article/git-workflow/[git-workflow]

@@ -1,17 +1,8 @@
-NAME	=	program
-LIB		=	lib$(NAME).a
-
+NAME	=	test
 
 CXX		=	g++
-AR		=	ar rs 2> /dev/null
 DB		=	lldb
 MAKE	=	make --no-print-directory 1> /dev/null
-ADOC	=	asciidoctor --require=asciidoctor-diagram
-
-
-DOCU	=	docs/README.adoc
-INDEX	=	docs/index.html
-
 
 CFLAGS	=	-Wall
 CFLAGS	+=	-Wextra
@@ -28,15 +19,19 @@ OFLAGS	=	-fsanitize=address
 SRCD	=	src
 
 SRCS	=	$(SRCD)/main.cpp
-SRCS	+=	$(SRCD)/f/f.cpp
+SRCS	+=	$(SRCD)/f/00_launcher.cpp
+SRCS	+=	$(SRCD)/f/01_test.cpp
 
 
 #	Headers
 
 INCD	=	inc
 
-INCS	+=	$(INCD)/f.hpp
+INCS	+=	$(INCD)/tests.hpp
 
+INCD_FLAGS	=	$(addprefix -I, $(INCD) framework/inc ../inc)
+
+LIBS_FLAGS	=	$(addprefix -l, program unit) $(addprefix -L, .. framework)
 
 #	Objets
 
@@ -49,21 +44,14 @@ RM		=	rm -rf
 all : $(NAME)
 
 $(NAME):	$(OBJS)
+	@$(MAKE) --directory=framework
 	@printf "$(YELLOW)Creating executable..$(DEFAULT)\n"
-	@$(CXX) $(OBJS) $(OFLAGS) -o $(NAME)
+	@$(CXX) $(OBJS) $(LIBS_FLAGS) $(OFLAGS) -o $(NAME)
 	@printf "$(GREEN)---> $(NAME) is ready$(DEFAULT)\n"
 
 $(OBJD)/%.o: $(SRCD)/%.cpp
 	@mkdir -p $(@D)
-	@$(CXX) -c $(<) $(CFLAGS) -I$(INCD) -o $(@)
-
-$(LIB): $(OBJS)
-	@$(AR) $(LIB) $(OBJS)
-
-test: $(LIB)
-	@$(MAKE) --directory=test
-	@printf "$(YELLOW)Launching test..$(DEFAULT)\n"
-	@(test/test && printf "$(GREEN)test: SUCCESS$(DEFAULT)\n") || printf "$(RED)test: ERROR$(DEFAULT)\n"
+	@$(CXX) -c $(<) $(CFLAGS) $(INCD_FLAGS) -o $(@)
 
 db: $(NAME)
 	$(DB) $(NAME)
@@ -72,30 +60,18 @@ format:
 	@printf "$(YELLOW)Formating the sources..$(DEFAULT)\n"
 	@clang-format -i $(SRCS) $(INCS)
 
-doc:
-	@printf "$(YELLOW)Generating documentations..$(DEFAULT)\n"
-	@$(ADOC) $(DOCU) -o $(INDEX)
-
-docdocker:
-	docker run --rm -v $(shell pwd):/documents/ asciidoctor/docker-asciidoctor make doc
-
 clean:
 	@$(RM) $(OBJD)
 	@printf "$(RED)Removed $(CYAN)$(OBJD)$(DEFAULT)\n"
 
 fclean: clean
 	@$(RM) $(NAME)
-	@$(RM) $(LIB)
 	@printf "$(RED)Removed $(CYAN)$(NAME)$(DEFAULT)\n"
-
-fullclean: fclean
-	@$(MAKE) --directory=test fclean
-	@$(MAKE) --directory=test/framework fclean
 
 re:	fclean all
 
 
-.PHONY: all clean fclean libclean fullclean test doc
+.PHONY: all clean fclean libclean fullclean
 
 
 #COLORS
