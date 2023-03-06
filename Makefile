@@ -70,14 +70,15 @@ db: $(NAME)
 
 format:
 	@printf "$(YELLOW)Formating the sources..$(DEFAULT)\n"
-	@clang-format -i $(SRCS) $(INCS)
+	@clang-format -i $(shell find . -name "*.hpp" -or -name "*.cpp")
 
 doc:
 	@printf "$(YELLOW)Generating documentations..$(DEFAULT)\n"
 	@$(ADOC) $(DOCU) -o $(INDEX)
 
 docdocker:
-	docker run --rm -v $(shell pwd):/documents/ asciidoctor/docker-asciidoctor make docs
+	@printf "$(YELLOW)launch the asciidoctor/docker-asciidoctor docker image..$(DEFAULT)\n"
+	@docker run --rm -v $(shell pwd):/documents/ asciidoctor/docker-asciidoctor make doc
 
 clean:
 	@$(RM) $(OBJD)
