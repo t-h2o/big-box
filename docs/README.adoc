@@ -5,7 +5,7 @@
 
 [blockquote, T-h2o]
 ____
-A Big box is a generic word for say a "project".
+A Big box is a generic word to say a "project".
 ____
 
 == File hierachy
