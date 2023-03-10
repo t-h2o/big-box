@@ -27,8 +27,6 @@ SRCS	+=	$(SRCD)/f/01_test.cpp
 
 INCD	=	inc
 
-INCS	+=	$(INCD)/tests.hpp
-
 INCD_FLAGS	=	$(addprefix -I, $(INCD) framework/inc ../inc)
 
 LIBS_FLAGS	=	$(addprefix -l, program unit) $(addprefix -L, .. framework)
@@ -58,7 +56,7 @@ db: $(NAME)
 
 format:
 	@printf "$(YELLOW)Formating the sources..$(DEFAULT)\n"
-	@clang-format -i $(SRCS) $(INCS)
+	@clang-format -i $(shell find . -name "*.hpp" -or -name "*.cpp")
 
 clean:
 	@$(RM) $(OBJD)

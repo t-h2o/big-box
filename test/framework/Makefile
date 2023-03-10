@@ -26,10 +26,6 @@ SRCS	+=	$(SRCD)/Result.cpp
 
 INCD	=	inc
 
-INCS	+=	$(INCD)/Unit_test.hpp
-INCS	+=	$(INCD)/Test.hpp
-INCS	+=	$(INCD)/Result.hpp
-
 
 #	Objets
 
@@ -52,7 +48,7 @@ $(OBJD)/%.o: $(SRCD)/%.cpp
 
 format:
 	@printf "$(YELLOW)Formating the sources..$(DEFAULT)\n"
-	@clang-format -i $(SRCS) $(INCS)
+	@clang-format -i $(shell find . -name "*.hpp" -or -name "*.cpp")
 
 clean:
 	@$(RM) $(OBJD)

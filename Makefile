@@ -35,8 +35,6 @@ SRCS	+=	$(SRCD)/f/f.cpp
 
 INCD	=	inc
 
-INCS	+=	$(INCD)/f.hpp
-
 
 #	Objets
 
