@@ -21,7 +21,7 @@ Follow the most possible the standard of frameworks.
 === Documentations
 
 docs:: Documentation folder with an `index.html` inside.
-https://asciidoc.org/[AsciiDoc]:: It is clear as markdown and has more feature than markdown
+https://asciidoc.org/[AsciiDoc]:: It is clear as markdown and has more feature than markdown. Read https://asciidoctor.org/docs/what-is-asciidoc/[what is AsciiDoc].
 
 === Testers
 
