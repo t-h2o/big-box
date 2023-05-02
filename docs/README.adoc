@@ -48,7 +48,7 @@ https://plantuml.com/[plantUML]:: From plain text to UML diagram
 
 === TypeScript Style Guide
 
-https://google.github.io/styleguide/tsguide.html
+https://google.github.io/styleguide/tsguide.html[Google Style Guide]:: The Google style guide for the TypeScript
 
 == Plan of operation
 
