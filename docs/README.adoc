@@ -36,3 +36,21 @@ git:: an example of a git workflow https://gastaud.io/article/git-workflow/[git-
 === code formater
 
 https://prettier.io/[prettier]:: code formatter for the web
+
+== Plan of operation
+
+. Create the repository and two main branches and set rules for them
++
+* `main`
+** require a pull request before merging
+** require three approvals
+** dismiss stale pull request approvals when new commits are pushed
+** lock branch
+** do not allow bypassing the above settings
+* `stage`
+** require a pull request before merging
+** require three approvals
+** dismiss stale pull request approvals when new commits are pushed
+. Setup framework and docker
+. Design the web application
+. Develope feature after feature
