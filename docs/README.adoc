@@ -38,6 +38,10 @@ git:: an example of a git workflow https://gastaud.io/article/git-workflow/[git-
 
 https://prettier.io/[prettier]:: code formatter for the web
 
+=== Project tracking
+
+https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects[GitHub project]:: A project tracking builtin of GitHub
+
 == Plan of operation
 
 . Create the repository and two main branches and set rules for them
