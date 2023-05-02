@@ -46,6 +46,10 @@ https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-a
 
 https://plantuml.com/[plantUML]:: From plain text to UML diagram
 
+=== TypeScript Style Guide
+
+https://google.github.io/styleguide/tsguide.html
+
 == Plan of operation
 
 . Create the repository and two main branches and set rules for them
