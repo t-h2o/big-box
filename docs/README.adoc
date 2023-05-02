@@ -42,6 +42,10 @@ https://prettier.io/[prettier]:: code formatter for the web
 
 https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects[GitHub project]:: A project tracking builtin of GitHub
 
+=== plantUML
+
+https://plantuml.com/[plantUML]:: From plain text to UML diagram
+
 == Plan of operation
 
 . Create the repository and two main branches and set rules for them
