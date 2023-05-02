@@ -13,6 +13,7 @@ ____
 https://react.dev/[react]:: frontend
 https://nestjs.com/[nestJS]:: backend
 https://www.cypress.io/[cypress]:: test
+https://penpot.app/[penpot]:: design
 
 == File hierachy
 
