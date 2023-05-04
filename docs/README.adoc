@@ -22,7 +22,6 @@ Follow the most possible the standard of frameworks.
 === Documentations
 
 docs:: Documentation folder with an `index.html` inside.
-https://asciidoc.org/[AsciiDoc]:: It is clear as markdown and has more feature than markdown. Read https://asciidoctor.org/docs/what-is-asciidoc/[what is AsciiDoc].
 
 === Testers
 
@@ -49,6 +48,10 @@ https://plantuml.com/[plantUML]:: From plain text to UML diagram
 === TypeScript Style Guide
 
 https://google.github.io/styleguide/tsguide.html[Google Style Guide]:: The Google style guide for the TypeScript
+
+=== Markup language
+
+https://asciidoc.org/[AsciiDoc]:: It is clear as markdown and has more feature than markdown. Read https://asciidoctor.org/docs/what-is-asciidoc/[what is AsciiDoc].
 
 == Plan of operation
 
